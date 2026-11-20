@@ -1,0 +1,15 @@
+{
+  "name": "recommendation-lab",
+  "version": "0.1.0",
+  "description": "What makes 'readers also liked' work? Bestseller list, item similarity and a taste profile model on 6 million book ratings.",
+  "private": true,
+  "scripts": {
+    "download": "sh scripts/0-download.sh",
+    "methods": "cd work && python3 ../scripts/1-methods-and-history.py",
+    "series": "cd work && python3 ../scripts/2-series-rule.py",
+    "readers": "cd work && python3 ../scripts/3-per-reader.py",
+    "export": "cd work && python3 ../scripts/4-export.py",
+    "serve": "python3 -m http.server 8000"
+  },
+  "license": "MIT"
+}
