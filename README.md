@@ -42,9 +42,9 @@ The dataset says its ratings are listed in time order. If readers entered rating
 
 [goodbooks-10k](https://github.com/zygmuntz/goodbooks-10k) by Zygmunt Zając, licensed CC BY-SA 4.0. The results data in `data/` contains book titles from it and is shared under the same licence.
 
-## How it was built
+## My role
 
-I framed the question, chose the test and the methods, and wrote the findings. Claude (Anthropic) was my engineering partner for the code. Decisions are recorded in [docs/decisions](docs/decisions).
+I framed the question, chose the test and the methods, and wrote the findings. Decisions are recorded in [docs/decisions](docs/decisions).
 
 ## Run it yourself
 

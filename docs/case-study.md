@@ -75,4 +75,4 @@ The dataset says ratings are in time order, but not whether that is reading orde
 
 ## My role
 
-I framed the question, chose the test, the methods and the measures, and wrote the findings. Claude (Anthropic) wrote the code with me and ran the checks.
+I framed the question, chose the test, the methods and the measures, and wrote the findings.
