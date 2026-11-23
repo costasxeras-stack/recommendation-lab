@@ -2,7 +2,7 @@
 
 **What makes "readers also liked" work? A bestseller list, item similarity and a taste profile model, tested on 6 million book ratings. The method mattered less than which of the reader's books it started from.**
 
-**Current version:** 0.1.0
+**Current version:** 0.2.0
 
 Live results: https://kostasxeras.com/recommendation-lab/
 

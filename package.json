@@ -1,6 +1,6 @@
 {
   "name": "recommendation-lab",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "What makes 'readers also liked' work? Bestseller list, item similarity and a taste profile model on 6 million book ratings.",
   "private": true,
   "scripts": {

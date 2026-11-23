@@ -5,77 +5,91 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Recommendation Lab</title>
 <meta name="description" content="Does a personalised 'readers also liked' beat a bestseller list? 10,000 readers, 6 million ratings, and the one input that mattered more than the method.">
-<meta name="theme-color" content="#f7f5f2">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d4ed8'/%3E%3Cpath d='M9 8h5v16H9zM16 8h7v16h-7z' fill='none' stroke='white' stroke-width='2.2'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#2e2420">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232e2420'/%3E%3Cpath d='M9 8h5v16H9zM16 8h7v16h-7z' fill='none' stroke='%23d9a441' stroke-width='2.2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,600;7..72,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Crimson+Pro:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f7f5f2; --card:#fff; --ink:#191714; --muted:#5e5850; --faint:#8e877c; --line:#e7e2da;
-  --accent:#1d4ed8; --accent-soft:#e8eefc; --pop:#a8a29e; --item:#1d4ed8; --svd:#c2410c;
-  --display:"Literata",Georgia,serif; --body:"Inter",system-ui,sans-serif;
+  --bg:#ffffff; --card:#fff; --ink:#1d1a18; --muted:#5b5550; --faint:#8b847d; --line:#e6e2de;
+  --wood:#2e2420; --wood-2:#3b2e28; --gold:#d9a441; --gold-ink:#8a5f12;
+  --accent:#7a1f2b; --accent-soft:#f6e8ea; --pop:#a8a29e; --item:#7a1f2b; --svd:#1f4e5a;
+  --ui:"Work Sans",system-ui,sans-serif; --book:"Crimson Pro",Georgia,serif;
 }
 *{box-sizing:border-box}
 html,body{overflow-x:clip}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--ui);-webkit-font-smoothing:antialiased}
 a{color:var(--accent)}
-h1,h2,h3{font-family:var(--display);letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1,h2,h3{margin:0;text-wrap:balance}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-header.top{border-bottom:1px solid var(--line);background:#fff}
-header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;height:60px}
-.brand{white-space:nowrap;font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
-.brand i{width:22px;height:22px;border-radius:6px;background:var(--accent);display:inline-block}
-.top nav{display:flex;gap:18px;font-size:14.5px}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;height:62px}
+.brand{white-space:nowrap;font-weight:700;font-size:18px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand i{display:inline-flex;gap:2px;align-items:flex-end}
+.brand i b{width:5px;border-radius:1px}
+.top nav{display:flex;gap:18px;font-size:15px}
 .top nav a{color:var(--muted);text-decoration:none;white-space:nowrap}
-.intro{padding:40px 0 24px}
-.ver{font:600 12.5px var(--body);color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:999px}
-.intro h1{font-size:clamp(30px,4.6vw,48px);line-height:1.08;margin-top:14px;max-width:22ch}
-.intro p{color:var(--muted);font-size:18px;max-width:70ch;margin:14px 0 0}
-section.block{margin-top:22px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
-.card h2{font-size:26px}
+.intro{padding:26px 0 22px;max-width:780px}
+.intro h1{font-size:clamp(30px,4.4vw,46px);line-height:1.06;font-weight:700;letter-spacing:-.025em}
+.intro p{color:var(--muted);font-size:17px;margin:12px 0 0}
+/* the shelf */
+.shelf-band{background:var(--wood);color:#f3ece6;padding:26px 0 30px}
+.shelf-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.shelf-head h2{font-size:21px;font-weight:700}
+.shelf-head p{margin:2px 0 0;color:#c9b9ad;font-size:14.5px}
+.btn{border:1px solid var(--line);background:#fff;border-radius:6px;padding:10px 16px;font:600 14.5px var(--ui);cursor:pointer;color:var(--ink)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#2a1d05}
+.shelf{display:flex;align-items:flex-end;gap:6px;margin-top:20px;padding:0 10px;min-height:240px;border-bottom:14px solid #5a463c;box-shadow:0 10px 0 -4px #1d1714;overflow-x:auto;scrollbar-width:thin}
+.spine{flex:none;width:58px;border-radius:3px 3px 0 0;display:flex;align-items:center;justify-content:center;padding:10px 4px;position:relative;box-shadow:inset -6px 0 0 rgba(0,0,0,.15),inset 3px 0 0 rgba(255,255,255,.08)}
+.spine span{writing-mode:vertical-rl;transform:rotate(180deg);font:600 15px/1.15 var(--book);color:#fbf6f1;max-height:100%;overflow:hidden;text-align:center}
+.spine::before,.spine::after{content:"";position:absolute;left:6px;right:6px;height:2px;background:rgba(255,255,255,.35)}
+.spine::before{top:12px}.spine::after{bottom:12px}
+.gap{flex:none;width:34px;align-self:center;text-align:center;color:#8f7b6e;font-size:22px}
+.spine.next{background:var(--gold)!important;width:74px;outline:3px dashed #f6dfa8;outline-offset:3px}
+.spine.next span{color:#2a1d05}
+.shelf-key{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:13.5px;color:#c9b9ad}
+.shelf-key i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.methods{display:grid;gap:10px;margin-top:22px}
+.mrow{display:grid;grid-template-columns:190px 1fr;gap:12px;align-items:start}
+.mrow h3{font-size:14.5px;font-weight:600;color:#f3ece6;padding-top:5px}
+.mrow h3 small{display:block;font-weight:400;color:#b6a497;font-size:12.5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font:500 13px/1.3 var(--book);font-size:14.5px;background:var(--wood-2);color:#e7dbd2;border-radius:3px;padding:4px 8px;max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chips span.hit{background:var(--gold);color:#2a1d05;font-weight:700}
+/* findings */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:34px}
+.stat b{display:block;font:700 38px/1 var(--ui);letter-spacing:-.03em;color:var(--accent)}
+.stat span{display:block;font-size:15.5px;font-weight:600;margin-top:8px}
+.stat small{display:block;color:var(--muted);font-size:13.5px;margin-top:4px}
+section.block{margin-top:34px}
+.card{border-top:3px solid var(--ink);padding:20px 0 0}
+.card h2{font-size:24px;font-weight:700;letter-spacing:-.015em}
 .sub{color:var(--muted);font-size:15px;margin:6px 0 0;max-width:74ch}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
-.stat b{display:block;font:700 40px/1 var(--display)}
-.stat span{display:block;color:var(--muted);font-size:14.5px;margin-top:8px}
-.stat small{display:block;color:var(--faint);font-size:13px;margin-top:6px}
-.chart{display:grid;gap:16px;margin-top:18px}
-.grp b{display:block;font-size:14px;margin-bottom:6px}
-.row{display:grid;grid-template-columns:150px 1fr 54px;gap:10px;align-items:center;font-size:13.5px;color:var(--muted);margin-top:4px}
-.bar{height:14px;border-radius:7px;background:#f0ede8;position:relative}
-.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:7px}
+.chart{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:18px}
+.grp b{display:block;font-size:15px;margin-bottom:6px}
+.row{display:grid;grid-template-columns:1fr 54px;gap:4px 10px;align-items:center;font-size:13.5px;color:var(--muted);margin-top:8px}
+.row > span:first-child{grid-column:1 / -1}
+.bar{height:12px;border-radius:2px;background:#f1eeeb;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:2px}
 .row .v{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600}
-table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:14px}
-th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
-th{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:14px}
+th,td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line)}
+th{font-size:13px;color:var(--muted);font-weight:600}
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-tr.best td{background:var(--accent-soft)}
+tr.best td{background:var(--accent-soft);font-weight:600}
 .note{font-size:13.5px;color:var(--faint);margin-top:12px}
-.reader{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px}
-.lists{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
-.list{border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-width:0}
-.list h3{font:600 14px var(--body);margin-bottom:8px}
-.list ol{margin:0;padding-left:20px;font-size:13.5px;display:grid;gap:4px;color:var(--muted)}
-.list li.hit{color:var(--accent);font-weight:600}
-.box{background:#faf8f5;border-radius:12px;padding:12px 14px;font-size:14px}
-.box b{display:block;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
-.box ul{margin:0;padding-left:18px}
-.btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 14px;font:600 14px var(--body);cursor:pointer}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-.ctl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
-footer{margin:44px 0 0;border-top:1px solid var(--line);background:#fff}
-footer .wrap{padding:22px 20px 34px;font-size:13.5px;color:var(--muted);display:grid;gap:6px}
-@media (max-width:900px){.lists{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.stats,.reader,.lists{grid-template-columns:1fr}.stat b{font-size:34px}.card{padding:18px}.intro p{font-size:16.5px}.top nav a.hide-sm{display:none}.row{grid-template-columns:110px 1fr 46px}th,td{padding:9px 5px;font-size:13.5px}.hide-sm-col{display:none}}
-@media (max-width:420px){.brand{font-size:16px}.top nav{gap:12px;font-size:13.5px}}
+footer{margin:48px 0 0}
+footer .wrap{padding:22px 20px 34px;font-size:13.5px;color:var(--muted);display:grid;gap:6px;border-top:1px solid var(--line)}
+@media (max-width:900px){.chart{grid-template-columns:1fr}.mrow{grid-template-columns:1fr;gap:6px}.mrow h3{padding-top:0}}
+@media (max-width:640px){.chips span:nth-child(n+6):not(.hit){display:none}.stats{grid-template-columns:1fr;gap:18px}.stat b{font-size:32px}.intro p{font-size:16.5px}.top nav a.hide-sm{display:none}th,td{padding:9px 5px;font-size:13.5px}.hide-sm-col{display:none}.shelf{min-height:200px}.spine{width:48px}.spine span{font-size:13.5px}.chips span{max-width:100%}}
+@media (max-width:420px){.brand{font-size:16px}.top nav{gap:12px;font-size:14px}}
 </style>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="./"><i aria-hidden="true"></i>Recommendation Lab</a>
+    <a class="brand" href="./"><i aria-hidden="true"><b style="height:16px;background:#7a1f2b"></b><b style="height:12px;background:#1f4e5a"></b><b style="height:18px;background:#d9a441"></b></i>Recommendation Lab</a>
     <nav>
       <a href="https://github.com/costasxeras-stack/recommendation-lab/blob/main/docs/case-study.md">Case study</a>
       <a class="hide-sm" href="https://github.com/costasxeras-stack/recommendation-lab">GitHub</a>
@@ -84,14 +98,26 @@ footer .wrap{padding:22px 20px 34px;font-size:13.5px;color:var(--muted);display:
   </div>
 </header>
 
-<main class="wrap">
-  <section class="intro">
-    <span class="ver">v0.1.0</span>
+<main>
+  <section class="wrap"><div class="intro">
     <h1>What makes "readers also liked" work?</h1>
     <p>Six million book ratings from 53,424 readers. For 10,000 of them, the most recent book they rated 4 or 5 stars was hidden, and each method had 10 tries to recommend it from what came before. The method mattered less than one choice: which of the reader's books to start from.</p>
+  </div></section>
+
+  <section class="shelf-band" aria-label="One reader at a time">
+    <div class="wrap">
+      <div class="shelf-head">
+        <div><h2>One reader's shelf</h2><p id="rn"></p></div>
+        <button class="btn gold" id="next">Show another reader</button>
+      </div>
+      <div class="shelf" id="shelf"></div>
+      <div class="shelf-key"><span>Their last liked books, oldest on the left</span><span><i style="background:var(--gold)"></i>The book they read next, hidden from every method</span></div>
+      <div class="methods" id="lists"></div>
+    </div>
   </section>
 
-  <section class="block stats" id="stats" aria-label="Headline results"></section>
+  <div class="wrap">
+  <section class="stats" id="stats" aria-label="Headline results"></section>
 
   <section class="block card">
     <h2>Start from the last books a reader liked</h2>
@@ -109,18 +135,12 @@ footer .wrap{padding:22px 20px 34px;font-size:13.5px;color:var(--muted);display:
     </table></div>
     <p class="note" id="series-note"></p>
   </section>
-
-  <section class="block card">
-    <h2>One reader at a time</h2>
-    <p class="sub">A random test reader: the last books they liked, the book that was hidden, and each method's top 10. A highlighted title is a hit.</p>
-    <div class="ctl"><button class="btn primary" id="next">Show another reader</button><span class="note" id="rn" style="margin:0"></span></div>
-    <div class="reader"><div class="box" id="recent"></div><div class="box" id="hidden"></div></div>
-    <div class="lists" id="lists"></div>
-  </section>
+  </div>
 </main>
 
 <footer>
   <div class="wrap">
+    <span>Version 0.2.0</span>
     <span>Built by <a href="https://kostasxeras.com/">Konstantinos Xeras</a>. <a href="https://github.com/costasxeras-stack/recommendation-lab">Code and results on GitHub</a>.</span>
     <span>Data: goodbooks-10k by Zygmunt Zając, CC BY-SA 4.0. The results data on this page is shared under the same licence. The dataset states that ratings are listed in time order.</span>
   </div>
@@ -151,18 +171,26 @@ footer .wrap{padding:22px 20px 34px;font-size:13.5px;color:var(--muted);display:
       return '<tr' + (k === 'item_last3' ? ' class="best"' : '') + '><td>' + NAMES[k] + '</td><td class="n">' + pct(m.hit) + '</td><td class="n hide-sm-col">' + pct(m.hit_series, 0) + '</td><td class="n">' + pct(m.hit_other) + '</td><td class="n">' + m.coverage.toLocaleString('en') + '</td><td class="n hide-sm-col">' + pct(m.top100, 0) + '</td></tr>';
     }).join('');
     $('series-note').textContent = 'A "next book in the series" rule applies to ' + D.series.rule_fired.toLocaleString('en') + ' readers and is right for ' + D.series.rule_hit + ' of them (' + pct(D.series.rule_hit / D.series.rule_fired, 0) + '). Adding it in front of "readers also liked" changes almost nothing, because that method already learns series. "Bestsellers in the top 10" counts recommendations from the 100 most liked books.';
+    // Open on the first sampled reader where at least one method found the book
+    for (var j = 0; j < D.examples.length; j++) { var ex = D.examples[j]; if (Object.keys(ex.recs).some(function (k) { return ex.recs[k].indexOf(ex.hidden) >= 0; })) { ri = j - 1; break; } }
     $('next').addEventListener('click', reader); reader();
   }
   function stat(b, t, s) { return '<div class="stat"><b>' + b + '</b><span>' + t + '</span><small>' + s + '</small></div>'; }
   function row(name, v, color, max) { return '<div class="row"><span>' + name + '</span><div class="bar"><i style="width:' + (v / max * 100) + '%;background:' + color + '"></i></div><span class="v">' + pct(v) + '</span></div>'; }
+  var CLOTH = ['#7a1f2b', '#1f4e5a', '#b07a1f', '#3c3f72', '#5e7a3a', '#a0522d', '#4a4a4a', '#6b3b5e'];
+  function spine(t, i, cls) {
+    var h = 150 + ((t.length * 37 + i * 53) % 70);
+    return '<div class="spine' + (cls ? ' ' + cls : '') + '" style="height:' + h + 'px;background:' + CLOTH[(t.length + i) % CLOTH.length] + '" title="' + esc(t) + '"><span>' + esc(t) + '</span></div>';
+  }
   function reader() {
     ri = (ri + 1) % D.examples.length; var e = D.examples[ri];
-    $('rn').textContent = 'Reader ' + (ri + 1) + ' of ' + D.examples.length + ' sampled at random';
-    $('recent').innerHTML = '<b>Last books they liked, most recent first</b><ul>' + e.recent.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>';
-    $('hidden').innerHTML = '<b>The hidden next book</b>' + esc(e.hidden);
-    var L = { pop: 'Bestseller list', item_full: 'Also liked, whole history', item_last3: 'Also liked, last 3 books', hybrid: 'Series first, then last 3' };
+    $('rn').textContent = 'Reader ' + (ri + 1) + ' of ' + D.examples.length + ', sampled at random. The page opens on a reader where at least one method found the book. Each method saw only the books before the gold one.';
+    var rec = e.recent.slice().reverse();
+    $('shelf').innerHTML = rec.map(function (t, i) { return spine(t, i); }).join('') + '<span class="gap" aria-hidden="true">→</span>' + spine(e.hidden, 9, 'next');
+    var L = { pop: ['Bestseller list', 'ignores the reader'], item_full: ['Readers also liked', 'whole history'], item_last3: ['Readers also liked', 'last 3 books'], hybrid: ['Series first', 'then last 3 books'] };
     $('lists').innerHTML = Object.keys(L).map(function (k) {
-      return '<div class="list"><h3>' + L[k] + '</h3><ol>' + e.recs[k].map(function (t) { return '<li' + (t === e.hidden ? ' class="hit"' : '') + '>' + esc(t) + '</li>'; }).join('') + '</ol></div>';
+      var hit = e.recs[k].indexOf(e.hidden) >= 0;
+      return '<div class="mrow"><h3>' + L[k][0] + '<small>' + L[k][1] + (hit ? ', found it' : ', missed it') + '</small></h3><div class="chips">' + e.recs[k].map(function (t) { return '<span' + (t === e.hidden ? ' class="hit"' : '') + ' title="' + esc(t) + '">' + esc(t) + '</span>'; }).join('') + '</div></div>';
     }).join('');
   }
 })();

@@ -2,6 +2,18 @@
 
 All notable changes to this project. Versions follow [docs/versioning.md](docs/versioning.md).
 
+## [0.2.0] - 2026-11-23
+
+### Changed
+- New design. The page opens on one reader's bookshelf: their last liked books as spines on a dark wooden shelf, the hidden next book in gold, and each method's top 10 underneath with a hit marked in gold. The page opens on a sampled reader where at least one method found the book, and says so.
+- The headline results are a row of short findings under the shelf instead of three tiles.
+- Own look for this app: white page, walnut shelf, book-cloth colours, Work Sans with Crimson Pro for book titles.
+
+### Added
+- Decision record: open with one reader's shelf.
+
+Data and results are unchanged.
+
 ## [0.1.0] - 2026-11-20
 
 First release.
